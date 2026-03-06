@@ -1,0 +1,15 @@
+<head>
+  <script>
+    // Webpack 将 `vue` 外部化为全局变量 `Vue`，这里把父页面中的 Vue 桥接过来
+    if (typeof Vue === 'undefined') {
+      const injectedVue = window.parent?.Vue ?? window.Vue;
+      if (injectedVue) {
+        // eslint-disable-next-line no-var
+        var Vue = injectedVue;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
