@@ -13,3 +13,6 @@ auto-imports.d.ts
 components.d.ts
 
 /dist
+
+# Playwright MCP
+.playwright-mcp/
