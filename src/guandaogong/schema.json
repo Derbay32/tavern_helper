@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "管道工": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "大厅订单": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        "备选订单池": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        "进行中订单": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        "收入明细": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        "累计收入": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "client": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "tagColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "client",
+        "title",
+        "address",
+        "distance",
+        "price",
+        "desc",
+        "tag",
+        "tagColor"
+      ]
+    }
+  }
+}
