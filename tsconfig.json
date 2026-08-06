@@ -24,8 +24,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "ignoreDeprecations": "6.0"
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["@types", "初始模板", "示例", "src", "util", "*.d.ts"],
   "exclude": ["**/dist/**", "**/node_modules/**"]
