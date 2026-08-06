@@ -33,7 +33,7 @@
               @click="selected_order = order"
             >
               <div class="hall-card__top">
-                <span :class="['order-tag', order.tagColor]">{{ order.tag }}</span>
+                <span :class="['order-tag', 'order-tag--' + tag_kind(order.tag)]">{{ order.tag }}</span>
                 <span class="order-distance">{{ order.distance }}</span>
               </div>
               <h3 class="hall-card__title">{{ order.title }}</h3>
@@ -168,6 +168,19 @@ const header_info: Record<TabKey, [string, string]> = {
 
 const header_title = computed(() => header_info[active_tab.value][0]);
 const header_subtitle = computed(() => header_info[active_tab.value][1]);
+
+// ---------- 订单标签颜色 (按 tag 类型映射, 不依赖数据) ----------
+const TAG_KIND_MAP: Record<string, string> = {
+  急单: 'urgent',
+  大单: 'big',
+  家庭预约: 'family',
+  常规单: 'regular',
+  亲友单: 'friend',
+};
+
+function tag_kind(tag: string): string {
+  return TAG_KIND_MAP[tag] ?? 'default';
+}
 
 // ---------- 订单数据 (来自 mvu 变量) ----------
 const hall_orders = computed(() => store.data.管道工.大厅订单);
@@ -421,6 +434,37 @@ body {
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 6px;
+
+  // 按 tag 类型绑定颜色
+  &--urgent {
+    background: #ffe4e6; // rose-100
+    color: #e11d48; // rose-600
+  }
+
+  &--big {
+    background: #dbeafe; // blue-100
+    color: #2563eb; // blue-600
+  }
+
+  &--family {
+    background: #f3e8ff; // purple-100
+    color: #9333ea; // purple-600
+  }
+
+  &--regular {
+    background: #dcfce7; // green-100
+    color: #16a34a; // green-600
+  }
+
+  &--friend {
+    background: #f3e8ff; // purple-100
+    color: #9333ea; // purple-600
+  }
+
+  &--default {
+    background: #f3f4f6; // gray-100
+    color: #4b5563; // gray-600
+  }
 }
 
 .order-distance {

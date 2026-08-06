@@ -67,9 +67,6 @@
         },
         "tag": {
           "type": "string"
-        },
-        "tagColor": {
-          "type": "string"
         }
       },
       "required": [
@@ -80,8 +77,7 @@
         "distance",
         "price",
         "desc",
-        "tag",
-        "tagColor"
+        "tag"
       ]
     }
   }

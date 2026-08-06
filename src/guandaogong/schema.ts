@@ -21,8 +21,6 @@ const OrderSchema = z.object({
   desc: z.string(),
   /** 标签, 如 急单/大单/家庭预约/常规单/亲友单 */
   tag: z.string(),
-  /** 标签颜色 (tailwind 类), 如 "bg-rose-100 text-rose-600" */
-  tagColor: z.string(),
 });
 
 const PlumberDataSchema = z.object({
@@ -46,77 +44,3 @@ export const PlumberSchema = Schema;
 
 export type PlumberData = z.output<typeof Schema>;
 export type PlumberOrder = z.output<typeof OrderSchema>;
-
-/** 默认大厅订单 (原 status.html 内置默认数据源) */
-export const DEFAULT_HALL_ORDERS: PlumberOrder[] = [
-  {
-    id: 1,
-    client: 'Jessica (全职太太)',
-    title: '主卧浴室下水道堵塞疏通',
-    address: '阳光海岸小区 1202室',
-    distance: '0.5公里',
-    price: 200,
-    desc: '家里主卧的管道堵得厉害，想请师傅上门仔细通一下，水漫金山了急需处理。',
-    tag: '急单',
-    tagColor: 'bg-rose-100 text-rose-600',
-  },
-  {
-    id: 2,
-    client: '美玲 (家里人)',
-    title: '厨房洗菜盆下水管道堵塞',
-    address: '枫林晚报小区 B区 302',
-    distance: '1.2公里',
-    price: 150,
-    desc: '家里人说厨房下水管道堵了，需要拿工具上门疏通一下。',
-    tag: '家庭预约',
-    tagColor: 'bg-purple-100 text-purple-600',
-  },
-  {
-    id: 3,
-    client: 'David (预约客户)',
-    title: '地下室主管道积水疏通',
-    address: '橡树林路 45号别墅',
-    distance: '2.0公里',
-    price: 300,
-    desc: '地下室管道堵塞积水，需要专业人员带疏通机上门处理。',
-    tag: '大单',
-    tagColor: 'bg-blue-100 text-blue-600',
-  },
-];
-
-/** 默认备选订单池 (原 status.html 内置默认数据源) */
-export const DEFAULT_EXTRA_POOL: PlumberOrder[] = [
-  {
-    id: 4,
-    client: 'Lisa (邻居)',
-    title: '阳台洗衣机地漏返水',
-    address: '碧水庄园 5栋 201室',
-    distance: '0.9公里',
-    price: 180,
-    desc: '洗衣机排水时地漏往外溢水，请上门帮忙排查疏通。',
-    tag: '常规单',
-    tagColor: 'bg-green-100 text-green-600',
-  },
-  {
-    id: 5,
-    client: 'Sophia (全职妈妈)',
-    title: '厨房主管道油污堵塞',
-    address: '香山美树 2单元 601室',
-    distance: '1.5公里',
-    price: 220,
-    desc: '油污长期积累导致下水极慢，需要高温高压或弹簧疏通。',
-    tag: '急单',
-    tagColor: 'bg-rose-100 text-rose-600',
-  },
-  {
-    id: 6,
-    client: '阿杰 (表哥)',
-    title: '卫生间马桶下水严重不畅',
-    address: '时代华庭 1栋 1104室',
-    distance: '2.3公里',
-    price: 160,
-    desc: '家里马桶冲水困难，顺便叫你过来看看主管道。',
-    tag: '亲友单',
-    tagColor: 'bg-purple-100 text-purple-600',
-  },
-];
